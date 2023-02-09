@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Sentiment_Analysis_Project.Models;
+using ProjektiSentimentAnalysis.Models;
 
 namespace ProjektiSentimentAnalysis.Controllers
 {
@@ -92,8 +92,8 @@ namespace ProjektiSentimentAnalysis.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            
+            
                 try
                 {
                     _context.Update(fakulteti);
@@ -111,7 +111,7 @@ namespace ProjektiSentimentAnalysis.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
+            
             return View(fakulteti);
         }
 

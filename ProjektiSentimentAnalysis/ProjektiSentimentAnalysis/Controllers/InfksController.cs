@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Sentiment_Analysis_Project.Models;
+using ProjektiSentimentAnalysis.Models;
 
 namespace ProjektiSentimentAnalysis.Controllers
 {
@@ -100,8 +100,7 @@ namespace ProjektiSentimentAnalysis.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            
                 try
                 {
                     _context.Update(infk);
@@ -119,7 +118,7 @@ namespace ProjektiSentimentAnalysis.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
+            
             ViewData["FakultetiId"] = new SelectList(_context.Fakultetis, "FakultetiId", "FakultetiId", infk.FakultetiId);
             ViewData["InstitutiId"] = new SelectList(_context.Institutis, "InstitutiId", "InstitutiId", infk.InstitutiId);
             return View(infk);

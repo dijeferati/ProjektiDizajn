@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Sentiment_Analysis_Project.Models;
+using ProjektiSentimentAnalysis.Models;
 
 #nullable disable
 
@@ -24,7 +24,7 @@ namespace ProjektiSentimentAnalysis.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Sentiment_Analysis_Project.Models.Fakulteti", b =>
+            modelBuilder.Entity("ProjektiSentimentAnalysis.Models.Fakulteti", b =>
                 {
                     b.Property<int>("FakultetiId")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace ProjektiSentimentAnalysis.Migrations
                     b.ToTable("Fakultetis");
                 });
 
-            modelBuilder.Entity("Sentiment_Analysis_Project.Models.Feedback", b =>
+            modelBuilder.Entity("ProjektiSentimentAnalysis.Models.Feedback", b =>
                 {
                     b.Property<int>("FeedbackId")
                         .ValueGeneratedOnAdd()
@@ -75,7 +75,7 @@ namespace ProjektiSentimentAnalysis.Migrations
                     b.ToTable("Feedbakcs");
                 });
 
-            modelBuilder.Entity("Sentiment_Analysis_Project.Models.Infk", b =>
+            modelBuilder.Entity("ProjektiSentimentAnalysis.Models.Infk", b =>
                 {
                     b.Property<int>("InfkId")
                         .ValueGeneratedOnAdd()
@@ -108,7 +108,7 @@ namespace ProjektiSentimentAnalysis.Migrations
                     b.ToTable("Infks");
                 });
 
-            modelBuilder.Entity("Sentiment_Analysis_Project.Models.Instituti", b =>
+            modelBuilder.Entity("ProjektiSentimentAnalysis.Models.Instituti", b =>
                 {
                     b.Property<int>("InstitutiId")
                         .ValueGeneratedOnAdd()
@@ -136,15 +136,15 @@ namespace ProjektiSentimentAnalysis.Migrations
                     b.ToTable("Institutis");
                 });
 
-            modelBuilder.Entity("Sentiment_Analysis_Project.Models.Feedback", b =>
+            modelBuilder.Entity("ProjektiSentimentAnalysis.Models.Feedback", b =>
                 {
-                    b.HasOne("Sentiment_Analysis_Project.Models.Fakulteti", "Fakulteti")
+                    b.HasOne("ProjektiSentimentAnalysis.Models.Fakulteti", "Fakulteti")
                         .WithMany("Feedbacks")
                         .HasForeignKey("FakultetiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sentiment_Analysis_Project.Models.Instituti", "Instituti")
+                    b.HasOne("ProjektiSentimentAnalysis.Models.Instituti", "Instituti")
                         .WithMany("Feedbacks")
                         .HasForeignKey("InstitutiId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -155,15 +155,15 @@ namespace ProjektiSentimentAnalysis.Migrations
                     b.Navigation("Instituti");
                 });
 
-            modelBuilder.Entity("Sentiment_Analysis_Project.Models.Infk", b =>
+            modelBuilder.Entity("ProjektiSentimentAnalysis.Models.Infk", b =>
                 {
-                    b.HasOne("Sentiment_Analysis_Project.Models.Fakulteti", "Fakulteti")
+                    b.HasOne("ProjektiSentimentAnalysis.Models.Fakulteti", "Fakulteti")
                         .WithMany("Infks")
                         .HasForeignKey("FakultetiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sentiment_Analysis_Project.Models.Instituti", "Instituti")
+                    b.HasOne("ProjektiSentimentAnalysis.Models.Instituti", "Instituti")
                         .WithMany("Infks")
                         .HasForeignKey("InstitutiId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -174,14 +174,14 @@ namespace ProjektiSentimentAnalysis.Migrations
                     b.Navigation("Instituti");
                 });
 
-            modelBuilder.Entity("Sentiment_Analysis_Project.Models.Fakulteti", b =>
+            modelBuilder.Entity("ProjektiSentimentAnalysis.Models.Fakulteti", b =>
                 {
                     b.Navigation("Feedbacks");
 
                     b.Navigation("Infks");
                 });
 
-            modelBuilder.Entity("Sentiment_Analysis_Project.Models.Instituti", b =>
+            modelBuilder.Entity("ProjektiSentimentAnalysis.Models.Instituti", b =>
                 {
                     b.Navigation("Feedbacks");
 

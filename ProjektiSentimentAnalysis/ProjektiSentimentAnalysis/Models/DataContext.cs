@@ -4,12 +4,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-//using Sentiment_Analysis_Project.Areas.Identity;
-//using SentimentAnalysis_Project.Areas.Identity.Data;
+using ProjektiSentimentAnalysis.Areas.Identity;
 
-namespace Sentiment_Analysis_Project.Models
+
+namespace ProjektiSentimentAnalysis.Models
 {
-    public class DataContext : DbContext//IdentityDbContext<IdentityUser> //ApplicationUser
+    public class DataContext : IdentityDbContext<IdentityUser>
+    
     {
         public DataContext(DbContextOptions<DataContext> options)
                 : base(options)
@@ -22,7 +23,7 @@ namespace Sentiment_Analysis_Project.Models
 
 
 
-        /*protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.
@@ -41,8 +42,8 @@ namespace Sentiment_Analysis_Project.Models
             builder.Property(u => u.Mbiemri).HasMaxLength(255);
         }
     }
-*/
+
         //  public class DataContext
         //  {}
     }
-}
+

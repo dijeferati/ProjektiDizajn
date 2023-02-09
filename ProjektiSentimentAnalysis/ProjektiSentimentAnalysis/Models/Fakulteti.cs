@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Sentiment_Analysis_Project.Models
+namespace ProjektiSentimentAnalysis.Models
 {
     public  class Fakulteti
     {
